@@ -1442,7 +1442,7 @@
                         <span class="cert-badge">Certified</span>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openCert('Практикум_по_математике_и_Python.pdf','Практикум по математике и Python — Stepik')" style="cursor:none">
+                <div class="cert-card" onclick="openCert('math-python-stepik.pdf','Math & Python — Stepik')" style="cursor:none">
                     <div class="cert-icon">📐</div>
                     <div class="cert-info">
                         <div class="cert-issuer">Stepik</div>
@@ -1460,7 +1460,7 @@
                         <span class="cert-badge">Score: 94/100 · Excellent</span>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openCert('Сертификат_-_VK_Education_Practice.pdf','VK Education Practice')" style="cursor:none">
+                <div class="cert-card" onclick="openCert('vk-education-practice.pdf','VK Education Practice')" style="cursor:none">
                     <div class="cert-icon">🚀</div>
                     <div class="cert-info">
                         <div class="cert-issuer">VK Education</div>
@@ -1469,7 +1469,7 @@
                         <span class="cert-badge">Industry Practice</span>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openCert('Сертификат_-_Открытый_лекторий_по_основам_искусственного_интеллекта.pdf','AI Fundamentals — VK Education')" style="cursor:none">
+                <div class="cert-card" onclick="openCert('vk-ai-fundamentals.pdf','AI Fundamentals — VK Education')" style="cursor:none">
                     <div class="cert-icon">🤖</div>
                     <div class="cert-info">
                         <div class="cert-issuer">VK Education</div>
@@ -1478,7 +1478,7 @@
                         <span class="cert-badge">Artificial Intelligence</span>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openCert('Сертификат_-_Новые_медиа__SMM_и_digital-маркетинг.pdf','New Media: SMM & Digital Marketing — VK Education')" style="cursor:none">
+                <div class="cert-card" onclick="openCert('vk-smm-marketing.pdf','SMM & Digital Marketing — VK Education')" style="cursor:none">
                     <div class="cert-icon">📱</div>
                     <div class="cert-info">
                         <div class="cert-issuer">VK Education</div>
@@ -1487,7 +1487,7 @@
                         <span class="cert-badge">Score: 31/37</span>
                     </div>
                 </div>
-                <div class="cert-card" onclick="openCert('Сертификат_-_Тексты_для_запуска_кастомных_стикеров_ВКонтакте.pdf','VKontakte Custom Sticker Texts — VK Education')" style="cursor:none">
+                <div class="cert-card" onclick="openCert('vk-stickers-project.pdf','VKontakte Custom Sticker Texts — VK Education')" style="cursor:none">
                     <div class="cert-icon">🎨</div>
                     <div class="cert-info">
                         <div class="cert-issuer">VK Education</div>
@@ -1690,7 +1690,7 @@
 
         function openCert(file, title) {
             pdfModalTitle.textContent = title;
-            pdfModalFrame.src = file;
+            pdfModalFrame.src = file + '#toolbar=0';
             pdfModal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
