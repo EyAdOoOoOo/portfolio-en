@@ -966,6 +966,70 @@
                 transform: translateY(0)
             }
 
+        /* PDF MODAL */
+        .pdf-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.85);
+            backdrop-filter: blur(12px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px
+        }
+        .pdf-modal-overlay.open {
+            display: flex
+        }
+        .pdf-modal {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 960px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            position: relative
+        }
+        .pdf-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0
+        }
+        .pdf-modal-title {
+            font-family: 'Syne', sans-serif;
+            font-size: .85rem;
+            font-weight: 700;
+            color: var(--white)
+        }
+        .pdf-modal-close {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 1.1rem;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: none;
+            transition: all .2s
+        }
+        .pdf-modal-close:hover {
+            border-color: var(--accent3);
+            color: var(--accent3)
+        }
+        .pdf-modal iframe {
+            flex: 1;
+            width: 100%;
+            min-height: 70vh;
+            border: none;
+            background: #fff
+        }
+
             /* SCROLLBAR */
             ::-webkit-scrollbar {
                 width: 4px
@@ -1360,7 +1424,7 @@
             <div class="section-label">Credentials</div>
             <h2 class="section-title">Certificates & <em>Achievements</em></h2>
             <div class="certs-grid fade-in">
-                <div class="cert-card">
+                <div class="cert-card" onclick="openCert('udemy_react_course.pdf','The Ultimate React Course 2025')" style="cursor:none">
                     <div class="cert-icon">⚛️</div>
                     <div class="cert-info">
                         <div class="cert-issuer">Udemy</div>
@@ -1369,7 +1433,7 @@
                         <span class="cert-badge">Instructor: Jonas Schmedtmann</span>
                     </div>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" onclick="openCert('stepik-certificate-python_eng.pdf','Python in Examples and Tasks — Stepik')" style="cursor:none">
                     <div class="cert-icon">🐍</div>
                     <div class="cert-info">
                         <div class="cert-issuer">Stepik · ДВФУ</div>
@@ -1378,7 +1442,7 @@
                         <span class="cert-badge">Certified</span>
                     </div>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" onclick="openCert('Практикум_по_математике_и_Python.pdf','Практикум по математике и Python — Stepik')" style="cursor:none">
                     <div class="cert-icon">📐</div>
                     <div class="cert-info">
                         <div class="cert-issuer">Stepik</div>
@@ -1387,7 +1451,7 @@
                         <span class="cert-badge">Result: 90% · With Distinction</span>
                     </div>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" onclick="openCert('Soft_Skills.pdf','Soft Skills: 21st Century Skills — UrFU')" style="cursor:none">
                     <div class="cert-icon">💼</div>
                     <div class="cert-info">
                         <div class="cert-issuer">Ural Federal University · OpenEdu</div>
@@ -1396,7 +1460,7 @@
                         <span class="cert-badge">Score: 94/100 · Excellent</span>
                     </div>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" onclick="openCert('Сертификат_-_VK_Education_Practice.pdf','VK Education Practice')" style="cursor:none">
                     <div class="cert-icon">🚀</div>
                     <div class="cert-info">
                         <div class="cert-issuer">VK Education</div>
@@ -1405,7 +1469,7 @@
                         <span class="cert-badge">Industry Practice</span>
                     </div>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" onclick="openCert('Сертификат_-_Открытый_лекторий_по_основам_искусственного_интеллекта.pdf','AI Fundamentals — VK Education')" style="cursor:none">
                     <div class="cert-icon">🤖</div>
                     <div class="cert-info">
                         <div class="cert-issuer">VK Education</div>
@@ -1414,7 +1478,7 @@
                         <span class="cert-badge">Artificial Intelligence</span>
                     </div>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" onclick="openCert('Сертификат_-_Новые_медиа__SMM_и_digital-маркетинг.pdf','New Media: SMM & Digital Marketing — VK Education')" style="cursor:none">
                     <div class="cert-icon">📱</div>
                     <div class="cert-info">
                         <div class="cert-issuer">VK Education</div>
@@ -1423,7 +1487,7 @@
                         <span class="cert-badge">Score: 31/37</span>
                     </div>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" onclick="openCert('Сертификат_-_Тексты_для_запуска_кастомных_стикеров_ВКонтакте.pdf','VKontakte Custom Sticker Texts — VK Education')" style="cursor:none">
                     <div class="cert-icon">🎨</div>
                     <div class="cert-info">
                         <div class="cert-issuer">VK Education</div>
@@ -1513,6 +1577,17 @@
         <div class="footer-logo">EG<span>.</span></div>
         <div class="footer-copy">© 2025 Eyad Ghanem — Built with passion & precision</div>
     </footer>
+
+    <!-- PDF MODAL -->
+    <div class="pdf-modal-overlay" id="pdfModal">
+        <div class="pdf-modal">
+            <div class="pdf-modal-header">
+                <div class="pdf-modal-title" id="pdfModalTitle"></div>
+                <button class="pdf-modal-close" id="pdfModalClose">✕</button>
+            </div>
+            <iframe id="pdfModalFrame" src="" title="Certificate"></iframe>
+        </div>
+    </div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
@@ -1607,6 +1682,26 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.skills-grid').forEach(el => skillObs.observe(el));
+        // PDF Modal
+        const pdfModal = document.getElementById('pdfModal');
+        const pdfModalFrame = document.getElementById('pdfModalFrame');
+        const pdfModalTitle = document.getElementById('pdfModalTitle');
+        const pdfModalClose = document.getElementById('pdfModalClose');
+
+        function openCert(file, title) {
+            pdfModalTitle.textContent = title;
+            pdfModalFrame.src = file;
+            pdfModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeCert() {
+            pdfModal.classList.remove('open');
+            pdfModalFrame.src = '';
+            document.body.style.overflow = '';
+        }
+        pdfModalClose.addEventListener('click', closeCert);
+        pdfModal.addEventListener('click', e => { if (e.target === pdfModal) closeCert(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCert(); });
     </script>
 </body>
 </html>
